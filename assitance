@@ -1,0 +1,92 @@
+def predict_image(img_path):
+    from keras.preprocessing import image
+    import numpy as np
+    img = image.load_img(img_path, target_size=(128, 128))
+    img = image.img_to_array(img)
+    img = np.expand_dims(img, axis=0)
+
+    img_Show = mpimg.imread(img_path)
+    plt.imshow(img)
+    plt.axis('off')
+
+    result = model.predict(img)
+    if result[0][0] == 1:
+        prediction = 'its heart'
+        print(prediction)
+    else:
+        prediction = 'its brain'
+        print(prediction)
+    return prediction
+
+
+
+
+def predict_image(img_path):
+    from keras.preprocessing import image
+    import numpy as np
+    img = image.load_img(img_path, target_size=(128, 128))
+    img = image.img_to_array(img)
+    img = np.expand_dims(img, axis=0)
+
+    img_Show = mpimg.imread(img_path)
+    plt.imshow(img)
+    plt.axis('off')
+
+    result = model.predict(img)
+    if result[0][0] == 1:
+        prediction = 'its heart'
+        print(prediction)
+    else:
+        prediction = 'its brain'
+        print(prediction)
+    return prediction
+
+
+
+class_dict = training_set.class_indices
+print(class_dict)
+
+
+import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
+path = (r"C:\Users\seraj\Desktop\ALL-projrct\simple CNN\Training\brain\brain.jpg ")
+
+img = mpimg.imread(path)
+plt.imshow(img)
+plt.axis('off')
+
+
+
+
+def predict_image(img_path):
+    #from keras.preprocessing import imageDataGenerator
+    import numpy as np
+    test_datagen = ImageDataGenerator(rescale=1./255)
+    img = test_datagen.flow_from_directory(img_path,
+    target_size=(128, 128))
+
+    img_Show = mpimg.imread(img_path)
+    plt.imshow(img)
+    plt.axis('off')
+
+    result = model.predict(img)
+
+    if result[0][0] == 1:
+        prediction = 'its heart'
+        print(prediction)
+    else:
+        prediction = 'its brain'
+        print(prediction)
+    return prediction
+
+
+import numpy as np
+import matplotlib.image as mpimg
+test_datagen = ImageDataGenerator(rescale=1./255)
+img = test_datagen.flow_from_('./real_test',
+    target_size=(128, 128))
+
+#img_Show = mpimg.imread(img)
+#plt.imshow(img)
+#plt.axis('off')
+result = model.predict(np.expand_dims(img, axis=1))
